@@ -11,18 +11,12 @@ object Day3 extends App with CodeGolf {
   println(part1)
 }
 
-case class Route(slope: List[Row], xPos: Int = 0, treesPreviouslyHit: Int = 0) {
-  @tailrec
-  final def calculateTreesHit: Int = {
-    slope match {
-      case head :: tail =>
-        Route(
-          tail,
-          xPos + 3,
-          if (head.isTree(xPos)) treesPreviouslyHit + 1 else treesPreviouslyHit
-        ).calculateTreesHit
-      case Nil => treesPreviouslyHit
-    }
+case class Route(slope: List[Row]) {
+  def calculateTreesHit: Int = {
+    slope.zipWithIndex.map {
+      case (row, index) if row.isTree(index * 3) => 1
+      case _                                     => 0
+    }.sum
   }
 }
 
