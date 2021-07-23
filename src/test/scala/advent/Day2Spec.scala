@@ -5,11 +5,13 @@ import org.scalatest.matchers.should.Matchers
 
 class Day2Spec extends AnyFlatSpec with Matchers {
   "Password parser" should "parse a valid password input" in {
-    SledRentalPassword("1-3 a: abcde") should be(SledRentalPassword('a', 1, 3, "abcde"))
+    SledRentalPassword("1-3 a: abcde") should be(
+      SledRentalPassword('a', 1, 3, "abcde")
+    )
   }
 
   it should "fail to parse an invalid input" in {
-    assertThrows[IllegalArgumentException]{
+    assertThrows[IllegalArgumentException] {
       SledRentalPassword("1-3 ad: abcde")
     }
   }

@@ -17,9 +17,12 @@ object Day1 extends App with CodeGolf {
   }
 
   def multiplyThree2020Entries(expenseReport: Set[Int]): Int = {
-    val firstEntry = expenseReport.find(entry => maybePair(expenseReport, 2020 - entry).isDefined).get
+    val firstEntry = expenseReport
+      .find(entry => maybePair(expenseReport, 2020 - entry).isDefined)
+      .get
 
-    val (secondEntry, thirdEntry) = maybePair(expenseReport, 2020 - firstEntry).get
+    val (secondEntry, thirdEntry) =
+      maybePair(expenseReport, 2020 - firstEntry).get
 
     firstEntry * secondEntry * thirdEntry
   }

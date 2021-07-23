@@ -17,6 +17,8 @@ class Day1Spec extends AnyFlatSpec with Matchers {
   "Day1 Part 2" should "multiply two numbers that sum to 2020" in {
     Day1.multiplyThree2020Entries(Set(2017, 2, 1)) should be(4034)
 
-    Day1.multiplyThree2020Entries(Set(1721, 979, 366, 299, 675, 1456)) should be(241861950)
+    Day1.multiplyThree2020Entries(
+      Set(1721, 979, 366, 299, 675, 1456)
+    ) should be(241861950)
   }
 }
